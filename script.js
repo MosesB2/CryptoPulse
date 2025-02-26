@@ -1,5 +1,3 @@
-let cryptoChart;
-
 // Fetch Crypto Data from CoinGecko API
 async function fetchCryptoData() {
     try {
@@ -25,65 +23,12 @@ function displayCryptoData(data) {
             <p>Market Cap: $${crypto.market_cap}</p>
             <p>24h Change: <span class="${crypto.price_change_percentage_24h >= 0 ? 'positive' : 'negative'}">${crypto.price_change_percentage_24h}%</span></p>
         `;
-        cryptoCard.addEventListener('click', () => showCryptoChart(crypto.id));
+        cryptoCard.addEventListener('click', () => {
+            // Redirect to chart page with crypto ID as a query parameter
+            window.location.href = `chart.html?id=${crypto.id}`;
+        });
         cryptoList.appendChild(cryptoCard);
     });
-}
-
-// Show Crypto Chart
-async function showCryptoChart(cryptoId) {
-    try {
-        const response = await fetch(`https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart?vs_currency=usd&days=30`);
-        const data = await response.json();
-        const prices = data.prices.map(price => price[1]);
-        const timestamps = data.prices.map(price => new Date(price[0]).toLocaleDateString());
-
-        const chartContainer = document.getElementById('chart-container');
-        chartContainer.classList.remove('hidden');
-
-        const ctx = document.getElementById('crypto-chart').getContext('2d');
-
-        if (cryptoChart) {
-            cryptoChart.destroy();
-        }
-
-        cryptoChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: timestamps,
-                datasets: [{
-                    label: 'Price (USD)',
-                    data: prices,
-                    borderColor: '#FFD700',
-                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                    borderWidth: 2,
-                    fill: true,
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Date',
-                        },
-                    },
-                    y: {
-                        display: true,
-                        title: {
-                            display: true,
-                            text: 'Price (USD)',
-                        },
-                    },
-                },
-            },
-        });
-    } catch (error) {
-        console.error('Error fetching chart data:', error);
-    }
 }
 
 // Search Functionality
@@ -99,13 +44,6 @@ document.getElementById('search').addEventListener('input', (e) => {
             card.style.display = 'none';
         }
     });
-});
-
-// Dark/Light Mode Toggle
-const toggleButton = document.getElementById('theme-toggle');
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    document.body.setAttribute('data-theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
 });
 
 // Initial Fetch
