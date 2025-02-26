@@ -1,20 +1,14 @@
 /* General Styles */
 :root {
-    --background: #ffffff;
-    --text: #000000;
-    --card-bg: #f9f9f9;
-    --card-shadow: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-    --background: #1a1a1a;
+    --background: #000000;
     --text: #ffffff;
-    --card-bg: #2d2d2d;
-    --card-shadow: rgba(255, 255, 255, 0.1);
+    --accent: #FFD700;
+    --card-bg: #1a1a1a;
+    --card-shadow: rgba(255, 215, 0, 0.1);
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
     color: var(--text);
     margin: 0;
@@ -38,20 +32,20 @@ header {
 h1 {
     font-size: 2rem;
     margin: 0;
+    color: var(--accent);
 }
 
 #theme-toggle {
-    background-color: var(--card-bg);
-    color: var(--text);
+    background-color: transparent;
+    color: var(--accent);
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.3s;
 }
 
 #theme-toggle:hover {
-    background-color: #555;
+    transform: rotate(180deg);
 }
 
 .search-container {
@@ -61,9 +55,16 @@ h1 {
 #search {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--accent);
     border-radius: 5px;
     font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text);
+    outline: none;
+}
+
+#search::placeholder {
+    color: #888;
 }
 
 .crypto-list {
@@ -88,9 +89,29 @@ h1 {
 .crypto-card h3 {
     margin: 0 0 10px;
     font-size: 1.5rem;
+    color: var(--accent);
 }
 
 .crypto-card p {
     margin: 0;
     font-size: 1.2rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .crypto-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .crypto-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .crypto-card p {
+        font-size: 1rem;
+    }
 }
