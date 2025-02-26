@@ -79,6 +79,7 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 6px var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .crypto-card:hover {
@@ -95,6 +96,18 @@ h1 {
 .crypto-card p {
     margin: 0;
     font-size: 1.2rem;
+}
+
+.chart-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+}
+
+.hidden {
+    display: none;
 }
 
 /* Mobile Responsiveness */
