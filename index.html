@@ -3,27 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoPulse - Exchange Rate Checker</title>
+    <title>CryptoPulse - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <nav>
             <h1>CryptoPulse</h1>
-            <button id="theme-toggle">🌙</button>
-        </header>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search for a cryptocurrency...">
-        </div>
-        <div class="crypto-list" id="crypto-list">
-            <!-- Crypto data will be dynamically inserted here -->
-        </div>
-        <div class="chart-container hidden" id="chart-container">
-            <canvas id="crypto-chart"></canvas>
-        </div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="crypto-checker.html">Crypto Checker</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="hero">
+            <h2>Welcome to CryptoPulse</h2>
+            <p>Your gateway to the world of cryptocurrency. Trade, track, and stay updated with the latest market trends.</p>
+            <a href="crypto-checker.html" class="cta-button">Check Crypto Rates</a>
+        </section>
+        <section class="features">
+            <div class="feature-card">
+                <h3>Real-Time Data</h3>
+                <p>Get real-time updates on cryptocurrency prices and market trends.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Advanced Charts</h3>
+                <p>View detailed price performance charts for all major cryptocurrencies.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Secure & Reliable</h3>
+                <p>Trusted by millions of users worldwide.</p>
+            </div>
+        </section>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
