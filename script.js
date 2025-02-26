@@ -21,7 +21,7 @@ function displayCryptoData(data) {
             <h3>${crypto.name} (${crypto.symbol.toUpperCase()})</h3>
             <p>Price: $${crypto.current_price}</p>
             <p>Market Cap: $${crypto.market_cap}</p>
-            <p>24h Change: ${crypto.price_change_percentage_24h}%</p>
+            <p>24h Change: <span class="${crypto.price_change_percentage_24h >= 0 ? 'positive' : 'negative'}">${crypto.price_change_percentage_24h}%</span></p>
         `;
         cryptoList.appendChild(cryptoCard);
     });
