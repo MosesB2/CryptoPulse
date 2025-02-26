@@ -227,3 +227,48 @@ nav ul li a:hover {
         font-size: 1rem;
     }
 }
+/* Policy Section Styles */
+.policy-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+    margin-top: 40px;
+}
+
+.policy-content h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.policy-content h3 {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.policy-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.policy-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.policy-content ul li {
+    margin-bottom: 10px;
+}
+
+.policy-content a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.policy-content a:hover {
+    text-decoration: underline;
+}
